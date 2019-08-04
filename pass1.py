@@ -7,8 +7,8 @@
 
 f1 = open("src.txt","r")
 f2 = open("optab.txt","r")
-f3 = open("inter.txt","a+")
-f4 = open("symtab.txt","a+")
+f3 = open("inter.txt","w+")
+f4 = open("symtab.txt","w+")
 
 def pass1():
 	x=f1.readline()
@@ -24,12 +24,12 @@ def pass1():
 	else :
 		locctr = 0
 #	while opcode != 'END':
-	for i in f1:
-		pgm=i.split()
+	for instr in f1:
+		pgm = instr.split()
 		pgm[2] = pgm[2].rstrip('\n')
-		label,opcode,operand = pgm
+		label, opcode, operand = pgm
 		if opcode == 'END':
-			f3.write(i)
+			f3.write(instr)
 			break
 		if label != "\t":
 			if !find(label,"symtab.txt") :   #complete
@@ -38,20 +38,24 @@ def pass1():
 			else:
 				print("Error!!! Duplicate symbol")
 		if find(opcode,"optab.txt"):
-			locctr+=3
+			locctr += 3
 		elif opcode == 'WORD':
-			locctr+=3
+			locctr += 3
 		elif opcode == 'RESW':
-			locctr+=(3*int(operand))
+			locctr += 3*int(operand)
 		elif opcode == 'RESB':
-			locctr+=int(operand)
-		#elif opcode == 'BYTE':
-		#	locctr+=(#length of constant in bytes)
+			locctr += int(operand)
+		'''syntax : LABEL BYTE NUM : 
+			means reserve NUM bytes to LABEL
+			find length of generated hex constant
+			occupying as many bytes as needed.'''
+		elif opcode == 'BYTE':
+			locctr += len(opcode)
 		else:
 			print("Error!!! Invalid	 operation code")
 		
 		#write line to intermediate file
-		f3.write(i)
+		f3.write(instr)
 		
 		#read next input line
 		
