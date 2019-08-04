@@ -1,0 +1,6 @@
+	 START 101
+	 READ N
+something is here
+	 START 101
+	 READ N
+something is here
