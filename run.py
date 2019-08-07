@@ -1,4 +1,4 @@
-''' Main python file running PASS1 and PASS2 programs.'''
+''' Main file running PASS1 and PASS2 programs.'''
 
 from pass1 import PASS1
 from pass2 import PASS2
