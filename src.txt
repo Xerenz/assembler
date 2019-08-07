@@ -1,3 +1,10 @@
-	 START 101
+MARTIN START 101
 	 READ N
-something is here
+	 MUL B
+	 WORD 3
+	 RESW 2
+	 BYTE X'F1'
+l1 READ C
+	 DIV 5
+	 RSUB 	
+	 END 
