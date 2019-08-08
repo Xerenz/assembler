@@ -50,19 +50,19 @@ using the location counter
 		if label != "\t":
 			if not find(label,"symtab.txt") :   #complete
 				#insert(label,locctr,symtab) #insert label and locctr to symtab
-				f4.write(label+"\t"+str(locctr))
+				f4.write(label +"\t" + str(locctr))
 			else:
 				print("Error!!! Duplicate symbol")
-		if find(opcode,"optab.txt"):
-			locctr+=3
+		if find(opcode, "optab.txt"):
+			locctr + =3
 		elif opcode == 'WORD':
-			locctr+=3
+			locctr += 3
 		elif opcode == 'RESW':
-			locctr+=(3*int(operand))
+			locctr += 3*int(operand)
 		elif opcode == 'RESB':
-			locctr+=int(operand)
+			locctr += int(operand)
 		elif opcode == 'BYTE':
-			locctr+=(len(operand)-3)
+			locctr += (len(operand)-3)
 		else:
 			print("Error!!! Invalid	 operation code")
 		
