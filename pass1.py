@@ -41,9 +41,9 @@ using the location counter
 
 	for i in f1:
 		pgm=i.split(" ")
-		print(pgm)
 		pgm[2] = pgm[2].rstrip('\n')
 		label,opcode,operand = pgm
+		
 		if opcode == 'END':
 			f3.write(i)
 			break
